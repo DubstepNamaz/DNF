@@ -1,0 +1,197 @@
+-- Gui to Lua
+-- Version: 3.2
+
+-- Instances:
+
+local SkyboxGUI = Instance.new("ScreenGui")
+local SkyHolder = Instance.new("Frame")
+local SkyClose = Instance.new("TextButton")
+local AlienRed = Instance.new("ImageLabel")
+local Submit = Instance.new("TextButton")
+local ImageLabel = Instance.new("ImageLabel")
+local Submit_2 = Instance.new("TextButton")
+local TheUtterEast = Instance.new("ImageLabel")
+local Submit_3 = Instance.new("TextButton")
+local SkyButton = Instance.new("TextButton")
+local UICorner = Instance.new("UICorner")
+
+--Properties:
+
+SkyboxGUI.Name = "SkyboxGUI"
+SkyboxGUI.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
+SkyboxGUI.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+
+SkyHolder.Name = "SkyHolder"
+SkyHolder.Parent = SkyboxGUI
+SkyHolder.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+SkyHolder.BorderColor3 = Color3.fromRGB(0, 0, 0)
+SkyHolder.BorderSizePixel = 0
+SkyHolder.Position = UDim2.new(0.288135588, 0, 0.258916318, 0)
+SkyHolder.Size = UDim2.new(0, 399, 0, 279)
+SkyHolder.Visible = false
+
+SkyClose.Name = "SkyClose"
+SkyClose.Parent = SkyHolder
+SkyClose.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+SkyClose.BorderColor3 = Color3.fromRGB(0, 0, 0)
+SkyClose.BorderSizePixel = 0
+SkyClose.Position = UDim2.new(0.874686718, 0, 0, 0)
+SkyClose.Size = UDim2.new(0, 50, 0, 50)
+SkyClose.Font = Enum.Font.SourceSans
+SkyClose.Text = "X"
+SkyClose.TextColor3 = Color3.fromRGB(255, 255, 255)
+SkyClose.TextScaled = true
+SkyClose.TextSize = 14.000
+SkyClose.TextWrapped = true
+
+AlienRed.Name = "AlienRed"
+AlienRed.Parent = SkyHolder
+AlienRed.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+AlienRed.BorderColor3 = Color3.fromRGB(0, 0, 0)
+AlienRed.BorderSizePixel = 0
+AlienRed.Position = UDim2.new(0.0325814523, 0, 0.154121861, 0)
+AlienRed.Size = UDim2.new(0, 51, 0, 51)
+AlienRed.Image = "rbxassetid://18708338439"
+
+Submit.Name = "Submit"
+Submit.Parent = AlienRed
+Submit.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+Submit.BorderColor3 = Color3.fromRGB(0, 0, 0)
+Submit.BorderSizePixel = 0
+Submit.Position = UDim2.new(1, 0, 0.0196078438, 0)
+Submit.Size = UDim2.new(0, 135, 0, 50)
+Submit.Font = Enum.Font.SourceSans
+Submit.Text = "SUBMIT"
+Submit.TextColor3 = Color3.fromRGB(255, 255, 255)
+Submit.TextScaled = true
+Submit.TextSize = 14.000
+Submit.TextWrapped = true
+
+ImageLabel.Name = ""
+ImageLabel.Parent = SkyHolder
+ImageLabel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+ImageLabel.BorderColor3 = Color3.fromRGB(0, 0, 0)
+ImageLabel.BorderSizePixel = 0
+ImageLabel.Position = UDim2.new(0.0325814523, 0, 0.383512557, 0)
+ImageLabel.Size = UDim2.new(0, 51, 0, 51)
+ImageLabel.Image = "rbxassetid://1010388"
+
+Submit_2.Name = "Submit"
+Submit_2.Parent = ImageLabel
+Submit_2.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+Submit_2.BorderColor3 = Color3.fromRGB(0, 0, 0)
+Submit_2.BorderSizePixel = 0
+Submit_2.Position = UDim2.new(1, 0, 0.0196078438, 0)
+Submit_2.Size = UDim2.new(0, 135, 0, 50)
+Submit_2.Font = Enum.Font.SourceSans
+Submit_2.Text = "SUBMIT"
+Submit_2.TextColor3 = Color3.fromRGB(255, 255, 255)
+Submit_2.TextScaled = true
+Submit_2.TextSize = 14.000
+Submit_2.TextWrapped = true
+
+TheUtterEast.Name = "TheUtterEast"
+TheUtterEast.Parent = SkyHolder
+TheUtterEast.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+TheUtterEast.BorderColor3 = Color3.fromRGB(0, 0, 0)
+TheUtterEast.BorderSizePixel = 0
+TheUtterEast.Position = UDim2.new(0.0325814523, 0, 0.620071709, 0)
+TheUtterEast.Size = UDim2.new(0, 51, 0, 51)
+TheUtterEast.Image = "rbxassetid://1014350"
+
+Submit_3.Name = "Submit"
+Submit_3.Parent = TheUtterEast
+Submit_3.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+Submit_3.BorderColor3 = Color3.fromRGB(0, 0, 0)
+Submit_3.BorderSizePixel = 0
+Submit_3.Position = UDim2.new(1, 0, 0.0196078438, 0)
+Submit_3.Size = UDim2.new(0, 135, 0, 50)
+Submit_3.Font = Enum.Font.SourceSans
+Submit_3.Text = "SUBMIT"
+Submit_3.TextColor3 = Color3.fromRGB(255, 255, 255)
+Submit_3.TextScaled = true
+Submit_3.TextSize = 14.000
+Submit_3.TextWrapped = true
+
+SkyButton.Name = "SkyButton"
+SkyButton.Parent = SkyboxGUI
+SkyButton.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+SkyButton.BorderColor3 = Color3.fromRGB(0, 0, 0)
+SkyButton.BorderSizePixel = 0
+SkyButton.Position = UDim2.new(0.0264830515, 0, 0.401234567, 0)
+SkyButton.Size = UDim2.new(0, 84, 0, 84)
+SkyButton.Font = Enum.Font.SourceSans
+SkyButton.Text = "SkyBox"
+SkyButton.TextColor3 = Color3.fromRGB(255, 255, 255)
+SkyButton.TextScaled = true
+SkyButton.TextSize = 14.000
+SkyButton.TextWrapped = true
+
+UICorner.CornerRadius = UDim.new(1, 0)
+UICorner.Parent = SkyButton
+
+-- Scripts:
+
+local function OOFI_fake_script() -- SkyClose.LocalScript 
+	local script = Instance.new('LocalScript', SkyClose)
+
+	script.Parent.MouseButton1Click:Connect(function()
+		local holder = script.Parent.Parent
+		holder.Visible = false
+	end)
+end
+coroutine.wrap(OOFI_fake_script)()
+local function AACWP_fake_script() -- Submit.LocalScript 
+	local script = Instance.new('LocalScript', Submit)
+
+	script.Parent.MouseButton1Click:Connect(function()
+		local lighting = game:GetService("Lighting")
+		local SkyBox = Instance.new("Sky", lighting)
+		SkyBox.SkyboxBk = "rbxassetid://1012890"
+		SkyBox.SkyboxDn = "rbxassetid://1012891"
+		SkyBox.SkyboxFt = "rbxassetid://1012887"
+		SkyBox.SkyboxLf = "rbxassetid://1012889"
+		SkyBox.SkyboxRt = "rbxassetid://1012888"
+		SkyBox.SkyboxUp = "rbxassetid://1014449"
+	end)
+end
+coroutine.wrap(AACWP_fake_script)()
+local function PGQOG_fake_script() -- Submit_2.LocalScript 
+	local script = Instance.new('LocalScript', Submit_2)
+
+	script.Parent.MouseButton1Click:Connect(function()
+		local lighting = game:GetService("Lighting")
+		local SkyBox = Instance.new("Sky", lighting)
+		SkyBox.SkyboxBk = "rbxassetid://1010388"
+		SkyBox.SkyboxDn = "rbxassetid://1010389"
+		SkyBox.SkyboxFt = "rbxassetid://1010386"
+		SkyBox.SkyboxLf = "rbxassetid://1010387"
+		SkyBox.SkyboxRt = "rbxassetid://1010385"
+		SkyBox.SkyboxUp = "rbxassetid://1010390"
+	end)
+end
+coroutine.wrap(PGQOG_fake_script)()
+local function QZVYS_fake_script() -- Submit_3.LocalScript 
+	local script = Instance.new('LocalScript', Submit_3)
+
+	script.Parent.MouseButton1Click:Connect(function()
+		local lighting = game:GetService("Lighting")
+		local SkyBox = Instance.new("Sky", lighting)
+		SkyBox.SkyboxBk = "rbxassetid://1014350"
+		SkyBox.SkyboxDn = "rbxassetid://1014351"
+		SkyBox.SkyboxFt = "rbxassetid://1014348"
+		SkyBox.SkyboxLf = "rbxassetid://1014349"
+		SkyBox.SkyboxRt = "rbxassetid://1014347"
+		SkyBox.SkyboxUp = "rbxassetid://1014352"
+	end)
+end
+coroutine.wrap(QZVYS_fake_script)()
+local function DELCWMF_fake_script() -- SkyButton.LocalScript 
+	local script = Instance.new('LocalScript', SkyButton)
+
+	script.Parent.MouseButton1Click:Connect(function()
+		local holder = script.Parent.Parent.SkyHolder
+		holder.Visible = true
+	end)
+end
+coroutine.wrap(DELCWMF_fake_script)()
