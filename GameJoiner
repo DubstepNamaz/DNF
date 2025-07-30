@@ -1,0 +1,155 @@
+-- Gui to Lua
+-- Version: 3.2
+
+-- Instances:
+
+local ScreenGui = Instance.new("ScreenGui")
+local Frame = Instance.new("Frame")
+local TextButton = Instance.new("TextButton")
+local TextBox = Instance.new("TextBox")
+local TextLabel = Instance.new("TextLabel")
+local StrokeFrame = Instance.new("UIStroke",Frame)
+local StrokeButtton = Instance.new("UIStroke",TextButton)
+local StrokeBox = Instance.new("UIStroke",TextBox)
+
+--Properties:
+
+ScreenGui.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
+ScreenGui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+
+Frame.Parent = ScreenGui
+Frame.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+Frame.BorderColor3 = Color3.fromRGB(0, 0, 0)
+Frame.BorderSizePixel = 0
+Frame.Position = UDim2.new(0.123089977, 0, 0.10631001, 0)
+Frame.Size = UDim2.new(0, 332, 0, 222)
+
+TextButton.Parent = Frame
+TextButton.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+TextButton.BorderColor3 = Color3.fromRGB(0, 0, 0)
+TextButton.BorderSizePixel = 0
+TextButton.Position = UDim2.new(0.0240963846, 0, 0.77477479, 0)
+TextButton.Size = UDim2.new(0, 317, 0, 43)
+TextButton.Font = Enum.Font.SourceSans
+TextButton.Text = "JOIN"
+TextButton.TextColor3 = Color3.fromRGB(255, 255, 255)
+TextButton.TextScaled = true
+TextButton.TextSize = 14.000
+TextButton.TextWrapped = true
+
+TextBox.Parent = Frame
+TextBox.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+TextBox.BorderColor3 = Color3.fromRGB(0, 0, 0)
+TextBox.BorderSizePixel = 0
+TextBox.Position = UDim2.new(0.0240963846, 0, 0.5, 0)
+TextBox.Size = UDim2.new(0, 317, 0, 50)
+TextBox.Font = Enum.Font.SourceSans
+TextBox.PlaceholderText = "Enter there ID of game..."
+TextBox.Text = ""
+TextBox.TextColor3 = Color3.fromRGB(255, 255, 255)
+TextBox.TextScaled = true
+TextBox.TextSize = 14.000
+TextBox.TextWrapped = true
+
+TextLabel.Parent = Frame
+TextLabel.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+TextLabel.BorderColor3 = Color3.fromRGB(0, 0, 0)
+TextLabel.BorderSizePixel = 0
+TextLabel.Position = UDim2.new(0.0240963846, 0, 0.0270270277, 0)
+TextLabel.Size = UDim2.new(0, 317, 0, 95)
+TextLabel.Font = Enum.Font.SourceSans
+TextLabel.Text = "DUBSTEP NAMAZ JOINER"
+TextLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
+TextLabel.TextScaled = true
+TextLabel.TextSize = 14.000
+TextLabel.TextWrapped = true
+
+StrokeFrame.Color = Color3.new(1, 0.0117647, 0.917647)
+StrokeFrame.Thickness = 3
+
+StrokeButtton.Color = Color3.new(1, 0.0117647, 0.917647)
+StrokeButtton.Thickness = 3 
+StrokeButtton.ApplyStrokeMode = "Border"
+
+StrokeBox.Color = Color3.new(1, 0.0117647, 0.917647)
+StrokeBox.Thickness = 3 
+StrokeBox.ApplyStrokeMode = "Border"
+
+-- Scripts:
+
+local function ISQO_fake_script() -- Frame.Drag 
+	local script = Instance.new('LocalScript', Frame)
+
+	local UserInputService = game:GetService("UserInputService")
+	
+	local gui = script.Parent
+	
+	local dragging
+	local dragInput
+	local dragStart
+	local startPos
+	
+	local function update(input)
+		local delta = input.Position - dragStart
+		gui.Position = UDim2.new(startPos.X.Scale, startPos.X.Offset + delta.X, startPos.Y.Scale, startPos.Y.Offset + delta.Y)
+	end
+	
+	gui.InputBegan:Connect(function(input)
+		if input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch then
+			dragging = true
+			dragStart = input.Position
+			startPos = gui.Position
+			
+			input.Changed:Connect(function()
+				if input.UserInputState == Enum.UserInputState.End then
+					dragging = false
+				end
+			end)
+		end
+	end)
+	
+	gui.InputChanged:Connect(function(input)
+		if input.UserInputType == Enum.UserInputType.MouseMovement or input.UserInputType == Enum.UserInputType.Touch then
+			dragInput = input
+		end
+	end)
+	
+	UserInputService.InputChanged:Connect(function(input)
+		if input == dragInput and dragging then
+			update(input)
+		end
+	end)
+end
+coroutine.wrap(ISQO_fake_script)()
+local function DCYIQXS_fake_script() -- TextButton.LocalScript 
+	local script = Instance.new('LocalScript', TextButton)
+
+	local Players = game:GetService("Players")
+	local TeleportService = game:GetService("TeleportService")
+	local player = Players.LocalPlayer
+	
+	-- Находим элементы GUI (замените пути на свои!)
+	local button = script.Parent -- если скрипт внутри кнопки
+	local textBox = button.Parent:FindFirstChild("TextBox") -- если TextBox рядом с кнопкой
+	
+	-- Если TextBox и кнопка лежат в другом месте, укажите полный путь, например:
+	-- local textBox = player.PlayerGui.ScreenGui.Frame.TextBox
+	
+	-- Функция для телепортации
+	local function teleportToGame()
+		local placeId = tonumber(textBox.Text) -- преобразуем текст в число
+	
+		if placeId then -- если введено число
+			TeleportService:Teleport(placeId, player)
+		else -- если введен неверный ID
+			warn("Ошибка: Нужно ввести числовой ID места!")
+			textBox.Text = "Ошибка! Введите число."
+			task.wait(2)
+			textBox.Text = "" -- очищаем поле
+		end
+	end
+	
+	-- Привязываем функцию к кнопке
+	button.MouseButton1Click:Connect(teleportToGame)
+end
+coroutine.wrap(DCYIQXS_fake_script)()
